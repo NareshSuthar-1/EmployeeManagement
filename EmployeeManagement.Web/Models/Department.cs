@@ -11,7 +11,7 @@ namespace EmployeeManagement.Web.Models
 
         [Required]
         [MaxLength(100)]
-        public string DeptName { get; set; } = null!;
+        public string DeptName { get; set; }
 
         [Required]
         [MaxLength(100)]

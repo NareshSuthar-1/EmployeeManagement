@@ -1,12 +1,31 @@
-﻿namespace EmployeeManagement.Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EmployeeManagement.Web.Models
 {
     public class Employee
     {
-        public int Id { get;  set; }
-        public string Name { get;  set; }
-        public int Age { get;  set; }
-        public decimal Salary { get;  set; }
-        public string Department { get;  set; }
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string Name { get; set; } = null!;
+
+        [Required]
+        public int Age { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Salary { get; set; }
+
+        // Foreign key to Department
+        [Required]
+        public int DepartmentId { get; set; }
+
+        // Navigation property for the related Department
+        [ForeignKey(nameof(DepartmentId))]
+        public Department Department { get; set; } = null!;
 
         #region  CODE FOR ENCUSULATION 
         //public string Department { get; private set; }
@@ -27,5 +46,4 @@
         //}
         #endregion
     }
-
 }
