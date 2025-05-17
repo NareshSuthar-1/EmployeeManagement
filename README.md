@@ -39,4 +39,29 @@ A simple Employee Management System built with **ASP.NET Core MVC**, demonstrati
 ---
 
 ## 🗂️ Project Structure
-
+EmployeeManagement/
+├── Controllers/
+│ ├── AccountController.cs
+│ └── EmployeeController.cs
+│
+├── Models/
+│ ├── Employee.cs
+│ ├── Department.cs
+│ └── User.cs
+│
+├── Repositories/
+│ ├── IEmployeeRepository.cs
+│ ├── EmployeeRepository.cs
+│ └── UnitOfWork.cs
+│
+├── Views/
+│ ├── Shared/
+│ ├── Employee/
+│ └── Account/
+│
+├── Resources/
+│ └── SharedResource.resx
+│
+├── wwwroot/uploads/
+│ └── (employee images)
+└── appsettings.json
