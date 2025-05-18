@@ -20,12 +20,12 @@ namespace EmployeeManagement.Web.Models
         public decimal Salary { get; set; }
 
         // Foreign key to Department
-        [Required]
+        //[Required]
         public int DepartmentId { get; set; }
 
-        // Navigation property for the related Department
-        [ForeignKey(nameof(DepartmentId))]
-        public Department Department { get; set; } = null!;
+        // Navigation property for the related Department FOR EF
+        //[ForeignKey(nameof(DepartmentId))]
+        //public Department Department { get; set; } = null!;
 
         #region  CODE FOR ENCUSULATION 
         //public string Department { get; private set; }
