@@ -7,11 +7,11 @@ namespace EmployeeManagement.Web.Models
     {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int DepartmentId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(100)]
-        public string DeptName { get; set; } = null!;
+        public string Name { get; set; }
 
         [Required]
         [MaxLength(100)]
