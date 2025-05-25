@@ -1,8 +1,12 @@
+using EmployeeManagement.Web.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
