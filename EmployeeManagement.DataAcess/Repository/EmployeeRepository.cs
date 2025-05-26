@@ -1,6 +1,7 @@
-﻿using EmployeeManagement.Web.Models;
+﻿using EmployeeManagement.DataAccess.Repository.IRepository;
+using EmployeeManagement.Models;
 
-namespace EmployeeManagement.Web.Repository
+namespace EmployeeManagement.DataAccess.Repository
 {
     public class EmployeeRepository : IEmployeeRepository
     {
@@ -24,7 +25,7 @@ namespace EmployeeManagement.Web.Repository
 
         Employee GetById(int EmployeeID)
         {
-            return employees.FirstOrDefault(emp=> emp.Id == EmployeeID);
+            return employees.FirstOrDefault(emp => emp.Id == EmployeeID);
         }
 
         void Insert(Employee employee)
@@ -46,7 +47,7 @@ namespace EmployeeManagement.Web.Repository
         }
         void Save()
         {
-            
+
         }
 
         IEnumerable<Employee> IEmployeeRepository.GetAll()

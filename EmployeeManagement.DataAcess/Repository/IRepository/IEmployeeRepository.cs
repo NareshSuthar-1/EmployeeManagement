@@ -1,6 +1,11 @@
-﻿using EmployeeManagement.Web.Models;
+﻿using EmployeeManagement.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagement.Web.Repository
+namespace EmployeeManagement.DataAccess.Repository.IRepository
 {
     public interface IEmployeeRepository
     {

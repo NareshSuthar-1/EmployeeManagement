@@ -1,5 +1,5 @@
-﻿using EmployeeManagement.Web.Models;
-using EmployeeManagement.Web.Repository;
+﻿using EmployeeManagement.DataAccess.Repository.IRepository;
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

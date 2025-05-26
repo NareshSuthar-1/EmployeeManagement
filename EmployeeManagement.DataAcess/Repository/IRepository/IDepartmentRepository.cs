@@ -1,6 +1,6 @@
-﻿using EmployeeManagement.Web.Models;
+﻿using EmployeeManagement.Models;
 
-namespace EmployeeManagement.Web.Repository
+namespace EmployeeManagement.DataAccess.Repository.IRepository
 {
     public interface IDepartmentRepository
     {

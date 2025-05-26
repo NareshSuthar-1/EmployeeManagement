@@ -1,4 +1,6 @@
-using EmployeeManagement.Web.Repository;
+
+using EmployeeManagement.DataAccess.Repository;
+using EmployeeManagement.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
