@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.DataAccess.Repository.IRepository;
 using EmployeeManagement.Models;
+using EmployeeManagement.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,21 +11,32 @@ namespace EmployeeManagement.DataAccess.Repository
 {
     public class DepartmentRepository : IDepartmentRepository
     {
-        private static List<Department> departments = new List<Department>
+        private static List<Department> _StaticDepartmentsList = StaticData.departments;
+        private List<Department> _departmentsList = new List<Department>();
+        public DepartmentRepository()
+        {
+            bool isStaticData = false;
+            if (isStaticData)
             {
-                new Department { Id = 1, Name = "Human Resources", Location = "New York" },
-                new Department { Id = 2, Name = "Finance", Location = "Chicago" },
-                new Department { Id = 3, Name = "IT", Location = "San Francisco" },
-                new Department { Id = 4, Name = "Marketing", Location = "Los Angeles" }
-            };
+                _departmentsList = _StaticDepartmentsList;
+            }
+            else
+            {
+                DAL dAL = new DAL();
+                _departmentsList = dAL.GetAllDepartments();
+            }
+        }
+
+
         public IEnumerable<Department> GetAll()
         {
-            return departments;
+            return _departmentsList;
         }
 
         public Department GetById(int departmentId)
         {
-            return departments.FirstOrDefault(dep => dep.Id == departmentId);
+
+            return _departmentsList.FirstOrDefault(dep => dep.Id == departmentId);
         }
     }
 }
