@@ -39,4 +39,6 @@ A simple Employee Management System built with **ASP.NET Core MVC**, demonstrati
 ---
 
 ## 🗂️ Project Structure
+![image](https://github.com/user-attachments/assets/c581e8ed-8fd4-4a70-a089-ea2fee71c845)
+![image](https://github.com/user-attachments/assets/8f119105-54c0-4de9-815e-2536015fde26)
 ![image](https://github.com/user-attachments/assets/fb99186c-3c86-4c45-920d-9b7b05a7dd9d)
