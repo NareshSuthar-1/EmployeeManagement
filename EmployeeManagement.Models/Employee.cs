@@ -27,7 +27,8 @@ namespace EmployeeManagement.Models
         // Foreign key to Department
         //[Required]
         public int DepartmentId { get; set; }
-
+        // Navigation property: One employee has many bank accounts
+         public ICollection<BankAccount> BankAccounts { get; set; }
         // Navigation property for the related Department FOR EF
         //[ForeignKey(nameof(DepartmentId))]
         //public Department Department { get; set; } = null!;
