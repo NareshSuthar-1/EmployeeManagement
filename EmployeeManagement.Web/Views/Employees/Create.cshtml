@@ -2,8 +2,6 @@
 @{
     ViewData["Title"] = "Create Employee Page";
 }
-<H1>Create Page</H1>
-
 
 @{
     ViewBag.Title = "Create Employee";
@@ -48,7 +46,7 @@
             <div class="col-md-10">
 
                 @Html.DropDownList("DepartmentId", ViewBag.Departments as SelectList, "-- Select Department --", new { @class = "form-control" })
-                @* @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" }) *@
+                @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
             </div>
         </div>
 

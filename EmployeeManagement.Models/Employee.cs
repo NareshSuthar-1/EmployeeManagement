@@ -1,7 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EmployeeManagement.Web.Models
+namespace EmployeeManagement.Models
 {
     public class Employee
     {
@@ -22,10 +27,11 @@ namespace EmployeeManagement.Web.Models
         // Foreign key to Department
         //[Required]
         public int DepartmentId { get; set; }
-
+        // Navigation property: One employee has many bank accounts
+         public ICollection<BankAccount> BankAccounts { get; set; }
         // Navigation property for the related Department FOR EF
-        //[ForeignKey(nameof(DepartmentId))]
-        //public Department Department { get; set; } = null!;
+        [ForeignKey(nameof(DepartmentId))]
+        public Department Department { get; set; } = null!;
 
         #region  CODE FOR ENCUSULATION 
         //public string Department { get; private set; }

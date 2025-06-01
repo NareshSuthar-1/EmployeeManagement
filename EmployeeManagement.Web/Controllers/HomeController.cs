@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using EmployeeManagement.Web.Models;
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Web.Controllers

@@ -1,8 +1,20 @@
+
+using EmployeeManagement.DataAccess.Data;
+using EmployeeManagement.DataAccess.Repository;
+using EmployeeManagement.DataAccess.Repository.IRepository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<AplicationDBContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
