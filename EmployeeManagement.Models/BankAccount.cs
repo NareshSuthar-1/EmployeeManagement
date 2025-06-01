@@ -31,6 +31,6 @@ namespace EmployeeManagement.Models
         public int EmployeeId { get; set; }
 
         // Navigation property: Each bank account belongs to one employee
-        public Employee Employee { get; set; }
+        public Employee Employees { get; set; }
     }
 }

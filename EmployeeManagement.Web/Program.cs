@@ -14,6 +14,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IBankAccountRepository, BankAccountRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

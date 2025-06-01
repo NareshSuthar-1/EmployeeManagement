@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.DataAccess.Repository.IRepository;
+﻿using EmployeeManagement.DataAccess.Data;
+using EmployeeManagement.DataAccess.Repository.IRepository;
 using EmployeeManagement.Models;
 using EmployeeManagement.Utility;
 using System;
@@ -13,8 +14,10 @@ namespace EmployeeManagement.DataAccess.Repository
     {
         private static List<Department> _StaticDepartmentsList = StaticData.departments;
         private List<Department> _departmentsList = new List<Department>();
-        public DepartmentRepository()
+        private readonly AplicationDBContext _db;
+        public DepartmentRepository(AplicationDBContext db)
         {
+            _db = db;
             bool isStaticData = false;
             if (isStaticData)
             {
@@ -22,8 +25,9 @@ namespace EmployeeManagement.DataAccess.Repository
             }
             else
             {
-                DAL dAL = new DAL();
-                _departmentsList = dAL.GetAllDepartments();
+                //DAL dAL = new DAL();
+                //_departmentsList = dAL.GetAllDepartments();
+                _departmentsList = _db.Departments.ToList();
             }
         }
 

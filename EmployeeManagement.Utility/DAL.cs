@@ -2,6 +2,7 @@
 using EmployeeManagement.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace EmployeeManagement.Utility
 {
@@ -17,7 +18,6 @@ namespace EmployeeManagement.Utility
                 var sql = "SELECT * FROM Department";
                 using IDbConnection db = new SqlConnection(_connectionString);
                 List<Department> departmentList =  db.Query<Department>(sql).ToList();
-                connection.Close();
                 return departmentList;
             }
         }
@@ -29,9 +29,8 @@ namespace EmployeeManagement.Utility
                 connection.Open();
                 var sql = "SELECT * FROM Employee";
                 using IDbConnection db = new SqlConnection(_connectionString);
-                List<Employee> employeetList = db.Query<Employee>(sql).ToList();
-                connection.Close();
-                return employeetList;
+                List<Employee> employeetList = (List<Employee>)db.Query<Employee>(sql);
+                return db.Query<Employee>(sql).ToList();
             }
         }
     }

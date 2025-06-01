@@ -8,8 +8,9 @@ namespace EmployeeManagement.DataAccess.Data
     {
 
         #region Entities
-        DbSet<BankAccount> BankAccounts { get; set; }
-        DbSet<Employee> Employees { get; set; }
+        public DbSet<BankAccount> BankAccounts { get; set; }
+       public  DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         #endregion Entities
 
@@ -31,7 +32,7 @@ namespace EmployeeManagement.DataAccess.Data
                     Currency = "INR",
                     IsActive = 1,
                     CreatedOn = DateTime.Now.AddMonths(-6),
-                    
+                    EmployeeId = 1,
                 },
                 new BankAccount
                 {
@@ -44,6 +45,7 @@ namespace EmployeeManagement.DataAccess.Data
                     Currency = "INR",
                     IsActive = 1,
                     CreatedOn = DateTime.Now.AddMonths(-12),
+                    EmployeeId = 2,
                 },
                 new BankAccount
                 {
@@ -56,6 +58,7 @@ namespace EmployeeManagement.DataAccess.Data
                     Currency = "INR",
                     IsActive = 0,
                     CreatedOn = DateTime.Now.AddYears(-1),
+                    EmployeeId = 3,
                 },
                 new BankAccount
                 {
@@ -68,6 +71,7 @@ namespace EmployeeManagement.DataAccess.Data
                     Currency = "INR",
                     IsActive = 1,
                     CreatedOn = DateTime.Now.AddDays(-30),
+                    EmployeeId = 1,
                 },
                 new BankAccount
                 {
@@ -80,10 +84,14 @@ namespace EmployeeManagement.DataAccess.Data
                     Currency = "USD",
                     IsActive = 1,
                     CreatedOn = DateTime.Now.AddYears(-2),
+                    EmployeeId = 2,
                 }
                 );
             modelBuilder.Entity<Employee>().HasData(
                 StaticData.employees
+                );
+            modelBuilder.Entity<Department>().HasData(
+                StaticData.departments
                 );
         }
 

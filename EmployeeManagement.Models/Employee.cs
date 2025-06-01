@@ -30,8 +30,8 @@ namespace EmployeeManagement.Models
         // Navigation property: One employee has many bank accounts
          public ICollection<BankAccount> BankAccounts { get; set; }
         // Navigation property for the related Department FOR EF
-        //[ForeignKey(nameof(DepartmentId))]
-        //public Department Department { get; set; } = null!;
+        [ForeignKey(nameof(DepartmentId))]
+        public Department Department { get; set; } = null!;
 
         #region  CODE FOR ENCUSULATION 
         //public string Department { get; private set; }

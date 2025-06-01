@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.DataAccess.Repository.IRepository;
+﻿using EmployeeManagement.DataAccess.Data;
+using EmployeeManagement.DataAccess.Repository.IRepository;
 using EmployeeManagement.Models;
 using EmployeeManagement.Utility;
 
@@ -8,7 +9,10 @@ namespace EmployeeManagement.DataAccess.Repository
     {
         private static List<Employee> _StaticEmployeesList = StaticData.employees;
         private static List<Employee> _employeeList = new List<Employee>();
-        public EmployeeRepository() {
+        private readonly AplicationDBContext _db;
+        public EmployeeRepository(AplicationDBContext db) 
+        {
+            _db = db;
             bool isStaticData = false;
             if (isStaticData)
             {
@@ -16,8 +20,9 @@ namespace EmployeeManagement.DataAccess.Repository
             }
             else
             {
-                DAL dAL = new DAL();
-                _employeeList = dAL.GetAllEmployees();
+                //DAL dAL = new DAL();
+                //_employeeList = dAL.GetAllEmployees();
+                _employeeList = _db.Employees.ToList(); // Using EF Core
             }
         }
         void Delete(int employeeID)
